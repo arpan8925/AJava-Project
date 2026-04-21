@@ -215,6 +215,55 @@ public class ComplaintDAO {
         }
     }
 
+    public List<Date> findCreatedAtSince(Date since) {
+        try (Session s = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Date> q = s.createQuery(
+                    "SELECT c.createdAt FROM Complaint c WHERE c.createdAt >= :since " +
+                            "ORDER BY c.createdAt", Date.class);
+            q.setParameter("since", since);
+            return q.list();
+        }
+    }
+
+    public List<Complaint> findFiltered(String status, String priority, Long deptId,
+                                        Boolean emergencyOnly, int page, int pageSize) {
+        try (Session s = HibernateUtil.getSessionFactory().openSession()) {
+            StringBuilder hql = new StringBuilder("FROM Complaint c WHERE 1=1");
+            if (status != null && !status.isEmpty())     hql.append(" AND c.status = :st");
+            if (priority != null && !priority.isEmpty()) hql.append(" AND c.priority = :pr");
+            if (deptId != null)                          hql.append(" AND c.department.id = :did");
+            if (Boolean.TRUE.equals(emergencyOnly))      hql.append(" AND c.isEmergency = TRUE");
+            hql.append(" ORDER BY c.createdAt DESC");
+
+            Query<Complaint> q = s.createQuery(hql.toString(), Complaint.class);
+            if (status != null && !status.isEmpty())     q.setParameter("st", Complaint.Status.valueOf(status));
+            if (priority != null && !priority.isEmpty()) q.setParameter("pr", Complaint.Priority.valueOf(priority));
+            if (deptId != null)                          q.setParameter("did", deptId);
+
+            q.setFirstResult(Math.max(0, (page - 1) * pageSize));
+            q.setMaxResults(pageSize);
+            return q.list();
+        }
+    }
+
+    public long countFiltered(String status, String priority, Long deptId, Boolean emergencyOnly) {
+        try (Session s = HibernateUtil.getSessionFactory().openSession()) {
+            StringBuilder hql = new StringBuilder("SELECT COUNT(c) FROM Complaint c WHERE 1=1");
+            if (status != null && !status.isEmpty())     hql.append(" AND c.status = :st");
+            if (priority != null && !priority.isEmpty()) hql.append(" AND c.priority = :pr");
+            if (deptId != null)                          hql.append(" AND c.department.id = :did");
+            if (Boolean.TRUE.equals(emergencyOnly))      hql.append(" AND c.isEmergency = TRUE");
+
+            Query<Long> q = s.createQuery(hql.toString(), Long.class);
+            if (status != null && !status.isEmpty())     q.setParameter("st", Complaint.Status.valueOf(status));
+            if (priority != null && !priority.isEmpty()) q.setParameter("pr", Complaint.Priority.valueOf(priority));
+            if (deptId != null)                          q.setParameter("did", deptId);
+
+            Long v = q.uniqueResult();
+            return v == null ? 0L : v;
+        }
+    }
+
     public List<Complaint> findEmergencies() {
         try (Session s = HibernateUtil.getSessionFactory().openSession()) {
             return s.createQuery(

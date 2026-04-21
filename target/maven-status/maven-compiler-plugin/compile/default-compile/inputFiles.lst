@@ -1,3 +1,4 @@
+G:\code_files\Java Porject\src\main\java\com\scs\servlet\AnalyticsServlet.java
 G:\code_files\Java Porject\src\main\java\com\scs\servlet\SubmitComplaintServlet.java
 G:\code_files\Java Porject\src\main\java\com\scs\servlet\SimilarComplaintsServlet.java
 G:\code_files\Java Porject\src\main\java\com\scs\util\PriorityBooster.java
@@ -5,8 +6,11 @@ G:\code_files\Java Porject\src\main\java\com\scs\dao\NotificationDAO.java
 G:\code_files\Java Porject\src\main\java\com\scs\dao\UserDAO.java
 G:\code_files\Java Porject\src\main\java\com\scs\servlet\ComplaintReplyServlet.java
 G:\code_files\Java Porject\src\main\java\com\scs\util\StopWords.java
+G:\code_files\Java Porject\src\main\java\com\scs\servlet\AdminComplaintsServlet.java
 G:\code_files\Java Porject\src\main\java\com\scs\servlet\DashboardRouterServlet.java
 G:\code_files\Java Porject\src\main\java\com\scs\servlet\UserProfileServlet.java
+G:\code_files\Java Porject\src\main\java\com\scs\servlet\ManageDepartmentsServlet.java
+G:\code_files\Java Porject\src\main\java\com\scs\servlet\GeoAnalyticsServlet.java
 G:\code_files\Java Porject\src\main\java\com\scs\servlet\SmartSuggestServlet.java
 G:\code_files\Java Porject\src\main\java\com\scs\util\SentimentAnalyzer.java
 G:\code_files\Java Porject\src\main\java\com\scs\servlet\RegisterServlet.java
@@ -19,6 +23,7 @@ G:\code_files\Java Porject\src\main\java\com\scs\util\TagGenerator.java
 G:\code_files\Java Porject\src\main\java\com\scs\servlet\TrackComplaintServlet.java
 G:\code_files\Java Porject\src\main\java\com\scs\dao\DepartmentDAO.java
 G:\code_files\Java Porject\src\main\java\com\scs\model\Notification.java
+G:\code_files\Java Porject\src\main\java\com\scs\servlet\ManageUsersServlet.java
 G:\code_files\Java Porject\src\main\java\com\scs\dao\ComplaintReplyDAO.java
 G:\code_files\Java Porject\src\main\java\com\scs\model\ComplaintReply.java
 G:\code_files\Java Porject\src\main\java\com\scs\util\AutoReplyGenerator.java
@@ -34,6 +39,7 @@ G:\code_files\Java Porject\src\main\java\com\scs\util\ETAPredictor.java
 G:\code_files\Java Porject\src\main\java\com\scs\model\User.java
 G:\code_files\Java Porject\src\main\java\com\scs\dao\AnalyticsLogDAO.java
 G:\code_files\Java Porject\src\main\java\com\scs\util\EmergencyDetector.java
+G:\code_files\Java Porject\src\main\java\com\scs\servlet\AssignComplaintServlet.java
 G:\code_files\Java Porject\src\main\java\com\scs\model\AnalyticsLog.java
 G:\code_files\Java Porject\src\main\java\com\scs\model\Complaint.java
 G:\code_files\Java Porject\src\main\java\com\scs\util\PasswordUtil.java

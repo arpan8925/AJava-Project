@@ -44,6 +44,9 @@ public final class PredictiveAnalytics {
             this.predictedNext30Days = predictedNext30Days;
             this.trend = trend;
         }
+        public double getDailyRate()          { return dailyRate; }
+        public int    getPredictedNext30Days() { return predictedNext30Days; }
+        public Trend  getTrend()               { return trend; }
         @Override public String toString() {
             return "Forecast{" + String.format("%.2f/day", dailyRate)
                     + ", 30d=" + predictedNext30Days + ", trend=" + trend + "}";
