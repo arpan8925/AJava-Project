@@ -2,11 +2,11 @@
 -- Smart Complaint Management System - Schema
 -- ============================================================
 
-CREATE DATABASE IF NOT EXISTS smart_complaint_system
-    DEFAULT CHARACTER SET utf8mb4
-    DEFAULT COLLATE utf8mb4_unicode_ci;
-
-USE smart_complaint_system;
+-- For cPanel / shared hosting: the database is created via the hosting UI.
+-- Select the target database in phpMyAdmin before running this script.
+-- For local dev, uncomment the two lines below:
+-- CREATE DATABASE IF NOT EXISTS smart_complaint_system DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_unicode_ci;
+-- USE smart_complaint_system;
 
 DROP TABLE IF EXISTS analytics_log;
 DROP TABLE IF EXISTS notifications;

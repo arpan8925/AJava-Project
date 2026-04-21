@@ -6,15 +6,16 @@
 --   citizen-<n>@scs.com  / citizen123
 -- ============================================================
 
-USE smart_complaint_system;
+-- For cPanel: select the target database in phpMyAdmin first.
+-- For local dev, uncomment: USE smart_complaint_system;
 
 SET FOREIGN_KEY_CHECKS = 0;
-TRUNCATE TABLE analytics_log;
-TRUNCATE TABLE notifications;
-TRUNCATE TABLE complaint_replies;
-TRUNCATE TABLE complaints;
-TRUNCATE TABLE departments;
-TRUNCATE TABLE users;
+DELETE FROM analytics_log;
+DELETE FROM notifications;
+DELETE FROM complaint_replies;
+DELETE FROM complaints;
+DELETE FROM departments;
+DELETE FROM users;
 SET FOREIGN_KEY_CHECKS = 1;
 
 -- ============================================================
