@@ -97,7 +97,7 @@ public final class SmartRecommender {
         }
         for (Map.Entry<String, String[]> e : KEYWORDS.entrySet()) {
             for (String kw : e.getValue()) {
-                if (haystack.contains(kw)) {
+                if (containsWord(haystack, kw)) {
                     matchedCategories.add(e.getKey());
                     break;
                 }
@@ -120,5 +120,37 @@ public final class SmartRecommender {
 
     public static Set<String> supportedCategories() {
         return Collections.unmodifiableSet(CATEGORIES.keySet());
+    }
+
+    public static String detectCategory(String title, String description) {
+        String haystack = ((title == null ? "" : title) + " "
+                        + (description == null ? "" : description)).toLowerCase();
+        String bestCategory = null;
+        int bestHits = 0;
+        for (Map.Entry<String, String[]> e : KEYWORDS.entrySet()) {
+            int hits = 0;
+            for (String kw : e.getValue()) {
+                if (containsWord(haystack, kw)) hits++;
+            }
+            if (hits > bestHits) { bestHits = hits; bestCategory = e.getKey(); }
+        }
+        return bestCategory == null ? "other" : bestCategory;
+    }
+
+    private static boolean containsWord(String haystack, String keyword) {
+        if (keyword == null || keyword.isEmpty()) return false;
+        int idx = 0;
+        while ((idx = haystack.indexOf(keyword, idx)) != -1) {
+            boolean leftOk  = (idx == 0) || !isWordChar(haystack.charAt(idx - 1));
+            int end = idx + keyword.length();
+            boolean rightOk = (end == haystack.length()) || !isWordChar(haystack.charAt(end));
+            if (leftOk && rightOk) return true;
+            idx += keyword.length();
+        }
+        return false;
+    }
+
+    private static boolean isWordChar(char c) {
+        return Character.isLetterOrDigit(c) || c == '_';
     }
 }

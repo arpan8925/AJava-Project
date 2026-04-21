@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/user/*", "/admin/*", "/officer/*"})
+@WebFilter(urlPatterns = {"/user/*", "/admin/*", "/officer/*", "/api/*"})
 public class AuthFilter implements Filter {
 
     @Override
@@ -37,7 +37,18 @@ public class AuthFilter implements Filter {
         User user = (session == null) ? null : (User) session.getAttribute("loggedInUser");
 
         if (user == null) {
-            resp.sendRedirect(ctx + "/login");
+            if (path.startsWith("/api/")) {
+                resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                resp.setContentType("application/json");
+                resp.getWriter().write("{\"error\":\"not authenticated\"}");
+            } else {
+                resp.sendRedirect(ctx + "/login");
+            }
+            return;
+        }
+
+        if (path.startsWith("/api/")) {
+            chain.doFilter(request, response);
             return;
         }
 
