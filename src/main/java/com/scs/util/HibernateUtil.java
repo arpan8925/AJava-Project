@@ -1,9 +1,10 @@
 package com.scs.util;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 
 public class HibernateUtil {
 
@@ -23,14 +24,15 @@ public class HibernateUtil {
     }
 
     private static SessionFactory buildSessionFactory() {
+        StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
+                .configure()
+                .build();
         try {
-            Configuration configuration = new Configuration().configure();
-            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-                    .applySettings(configuration.getProperties())
-                    .build();
-            return configuration.buildSessionFactory(serviceRegistry);
-        } catch (Throwable ex) {
-            throw new ExceptionInInitializerError(ex);
+            Metadata metadata = new MetadataSources(registry).buildMetadata();
+            return metadata.getSessionFactoryBuilder().build();
+        } catch (Throwable e) {
+            StandardServiceRegistryBuilder.destroy(registry);
+            throw e;
         }
     }
 

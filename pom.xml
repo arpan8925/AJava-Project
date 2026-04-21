@@ -85,6 +85,22 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+
+            <!-- Local dev server: `mvn jetty:run` launches the app at http://localhost:8080/ -->
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.4.53.v20231009</version>
+                <configuration>
+                    <webApp>
+                        <contextPath>/</contextPath>
+                    </webApp>
+                    <httpConnector>
+                        <port>8080</port>
+                    </httpConnector>
+                    <scanIntervalSeconds>0</scanIntervalSeconds>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>

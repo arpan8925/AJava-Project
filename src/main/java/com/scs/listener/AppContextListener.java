@@ -11,8 +11,15 @@ public class AppContextListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        HibernateUtil.getSessionFactory();
-        sce.getServletContext().log("Hibernate SessionFactory initialized.");
+        try {
+            HibernateUtil.getSessionFactory();
+            sce.getServletContext().log("Hibernate SessionFactory initialized.");
+        } catch (Throwable t) {
+            sce.getServletContext().log(
+                "Hibernate SessionFactory not initialized (DB unavailable?). "
+                + "UI will load; DB-backed actions will fail until connection works. Cause: "
+                + t.getMessage());
+        }
     }
 
     @Override
