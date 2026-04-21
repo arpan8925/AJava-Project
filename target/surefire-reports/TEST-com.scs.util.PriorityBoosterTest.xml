@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.scs.dao.UserDAOTest" time="1.545" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.scs.util.PriorityBoosterTest" time="0.0" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -58,24 +58,11 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="adminUserExistsFromSeed" classname="com.scs.dao.UserDAOTest" time="1.42">
-    <system-err><![CDATA[Apr 21, 2026 1:25:32 PM org.hibernate.Version logVersion
-INFO: HHH000412: Hibernate ORM core version 5.6.15.Final
-Apr 21, 2026 1:25:32 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
-INFO: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-Apr 21, 2026 1:25:32 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
-WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-Apr 21, 2026 1:25:32 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
-INFO: HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/smart_complaint_system?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true]
-Apr 21, 2026 1:25:32 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
-INFO: HHH10001001: Connection properties: {password=****, user=root}
-Apr 21, 2026 1:25:32 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
-INFO: HHH10001003: Autocommit mode: false
-Apr 21, 2026 1:25:32 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
-INFO: HHH000115: Hibernate connection pool size: 10 (min=1)
-Apr 21, 2026 1:25:33 PM org.hibernate.dialect.Dialect <init>
-INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-]]></system-err>
-  </testcase>
-  <testcase name="insertAndFetchUser" classname="com.scs.dao.UserDAOTest" time="0.074"/>
+  <testcase name="criticalDoesNotExceedCritical" classname="com.scs.util.PriorityBoosterTest" time="0.0"/>
+  <testcase name="repeatAndStaleStackCleanly" classname="com.scs.util.PriorityBoosterTest" time="0.0"/>
+  <testcase name="belowThresholdNoBoostFromRepeat" classname="com.scs.util.PriorityBoosterTest" time="0.0"/>
+  <testcase name="fourthComplaintBoostsLowToMedium" classname="com.scs.util.PriorityBoosterTest" time="0.0"/>
+  <testcase name="staleUnresolvedBumpsOneLevel" classname="com.scs.util.PriorityBoosterTest" time="0.0"/>
+  <testcase name="nullPriorityTreatedAsMedium" classname="com.scs.util.PriorityBoosterTest" time="0.0"/>
+  <testcase name="fifthComplaintBoostsMediumToHigh" classname="com.scs.util.PriorityBoosterTest" time="0.0"/>
 </testsuite>

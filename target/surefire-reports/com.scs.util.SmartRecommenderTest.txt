@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: com.scs.dao.UserDAOTest
+Test set: com.scs.util.SmartRecommenderTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.545 s -- in com.scs.dao.UserDAOTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.scs.util.SmartRecommenderTest
