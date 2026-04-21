@@ -14,6 +14,7 @@ com\scs\servlet\UserProfileServlet.class
 com\scs\util\EmergencyDetector.class
 com\scs\servlet\AdminComplaintsServlet.class
 com\scs\servlet\DashboardRouterServlet$1.class
+com\scs\servlet\ResolveComplaintServlet.class
 com\scs\dao\AnalyticsLogDAO.class
 com\scs\servlet\ManageDepartmentsServlet.class
 com\scs\servlet\GeoAnalyticsServlet.class
@@ -31,6 +32,7 @@ com\scs\servlet\DashboardRouterServlet.class
 com\scs\servlet\TrackComplaintServlet.class
 com\scs\util\SentimentAnalyzer$Result.class
 com\scs\util\EmergencyDetector$Result.class
+com\scs\servlet\AssignedComplaintsServlet.class
 com\scs\servlet\ManageUsersServlet.class
 com\scs\model\AnalyticsLog.class
 com\scs\servlet\SimilarComplaintsServlet.class
