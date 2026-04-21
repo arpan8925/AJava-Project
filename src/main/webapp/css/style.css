@@ -1,0 +1,120 @@
+:root {
+    --scs-primary: #2563eb;
+    --scs-primary-dark: #1d4ed8;
+    --scs-accent: #0ea5e9;
+    --scs-danger: #dc2626;
+    --scs-warning: #d97706;
+    --scs-success: #16a34a;
+    --scs-muted: #64748b;
+    --scs-surface: #ffffff;
+    --scs-bg: #f1f5f9;
+    --scs-border: #e2e8f0;
+    --scs-text: #0f172a;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    background: var(--scs-bg);
+    color: var(--scs-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+    padding: 2rem 0;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+.navbar-scs {
+    background: var(--scs-primary);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.navbar-scs .navbar-brand,
+.navbar-scs .nav-link {
+    color: #fff !important;
+}
+
+.navbar-scs .nav-link:hover {
+    color: #dbeafe !important;
+}
+
+.btn-scs {
+    background: var(--scs-primary);
+    color: #fff;
+    border: none;
+}
+
+.btn-scs:hover {
+    background: var(--scs-primary-dark);
+    color: #fff;
+}
+
+.card-scs {
+    background: var(--scs-surface);
+    border: 1px solid var(--scs-border);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--scs-primary) 0%, var(--scs-accent) 100%);
+    color: #fff;
+    padding: 4rem 0;
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.badge-role-admin   { background: var(--scs-danger); color: #fff; }
+.badge-role-officer { background: var(--scs-warning); color: #fff; }
+.badge-role-citizen { background: var(--scs-success); color: #fff; }
+
+.status-pending     { background: #e2e8f0; color: #334155; }
+.status-assigned    { background: #dbeafe; color: #1d4ed8; }
+.status-in_progress { background: #fef3c7; color: #92400e; }
+.status-resolved    { background: #dcfce7; color: #166534; }
+.status-closed      { background: #e2e8f0; color: #475569; }
+
+.priority-low      { background: #e2e8f0; color: #334155; }
+.priority-medium   { background: #dbeafe; color: #1d4ed8; }
+.priority-high     { background: #fed7aa; color: #9a3412; }
+.priority-critical { background: #fecaca; color: #991b1b; }
+
+.emergency-badge {
+    background: var(--scs-danger);
+    color: #fff;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.error-page {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.error-page .code {
+    font-size: 6rem;
+    font-weight: 700;
+    color: var(--scs-primary);
+    line-height: 1;
+}
+
+.form-signin {
+    max-width: 420px;
+    margin: 3rem auto;
+    padding: 2rem;
+}

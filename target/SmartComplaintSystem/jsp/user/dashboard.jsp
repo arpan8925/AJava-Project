@@ -1,0 +1,29 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="pageTitle" value="Citizen Dashboard"/>
+<c:set var="user" value="${sessionScope.loggedInUser}"/>
+
+<jsp:include page="/jsp/common/header.jsp"/>
+<jsp:include page="/jsp/common/navbar.jsp"/>
+
+<main class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <jsp:include page="/jsp/common/sidebar.jsp"/>
+        </div>
+        <div class="col-lg-9">
+            <div class="card-scs p-4">
+                <h3>Welcome back, <c:out value="${user.name}"/></h3>
+                <p class="text-muted">
+                    This is your citizen dashboard. Submit new complaints, track progress, and review
+                    history.
+                </p>
+                <p class="text-muted small mb-0">
+                    <em>Full dashboard with stats cards, recent complaints, and notifications arrives in Phase 4.</em>
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<jsp:include page="/jsp/common/footer.jsp"/>
