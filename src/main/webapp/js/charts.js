@@ -28,8 +28,15 @@
         var raw = parseInt(el.getAttribute('height'), 10);
         var height = Number.isFinite(raw) && raw > 0 ? raw : fallbackHeight;
         if (height > 0) {
-            // Keep responsive width while pinning a predictable drawing height.
-            el.style.height = height + 'px';
+            // Chart.js responsive mode sizes to the *parent* container, not the
+            // canvas element itself. Wrap in a positioned div with a fixed height
+            // so the chart never grows unboundedly.
+            var wrapper = document.createElement('div');
+            wrapper.style.cssText = 'position:relative;height:' + height + 'px';
+            el.parentNode.insertBefore(wrapper, el);
+            wrapper.appendChild(el);
+            el.removeAttribute('height');
+            el.style.height = '';
         }
     }
 
