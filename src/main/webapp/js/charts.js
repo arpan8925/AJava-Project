@@ -23,9 +23,20 @@
         CLOSED:      '#64748b'
     };
 
+    function applyCanvasHeight(el, fallbackHeight) {
+        if (!el) return;
+        var raw = parseInt(el.getAttribute('height'), 10);
+        var height = Number.isFinite(raw) && raw > 0 ? raw : fallbackHeight;
+        if (height > 0) {
+            // Keep responsive width while pinning a predictable drawing height.
+            el.style.height = height + 'px';
+        }
+    }
+
     function renderLine(id, labels, series, label) {
         var el = document.getElementById(id);
         if (!el) return;
+        applyCanvasHeight(el, 120);
         new Chart(el, {
             type: 'line',
             data: {
@@ -54,6 +65,7 @@
     function renderDoughnut(id, map, colorLookup) {
         var el = document.getElementById(id);
         if (!el || !map) return;
+        applyCanvasHeight(el, 160);
         var labels = Object.keys(map);
         var values = labels.map(function (k) { return map[k]; });
         var colors = labels.map(function (k, i) {
@@ -73,6 +85,7 @@
     function renderBar(id, map, label, horizontal) {
         var el = document.getElementById(id);
         if (!el || !map) return;
+        applyCanvasHeight(el, 160);
         var labels = Object.keys(map);
         var values = labels.map(function (k) { return map[k]; });
         var colors = labels.map(function (_, i) { return PALETTE[i % PALETTE.length]; });
