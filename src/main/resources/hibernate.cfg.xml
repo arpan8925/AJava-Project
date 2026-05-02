@@ -8,7 +8,7 @@
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <!-- Supabase: Project Settings > Database > Connection string (URI).
              Use the Session pooler (port 5432) or Transaction pooler (port 6543). -->
-        <property name="hibernate.connection.url">jdbc:postgresql://db.YOUR-PROJECT-REF.supabase.co:5432/postgres?sslmode=require</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://db.qjqzsudwdbzrotbxnkkw.supabase.co:5432/postgres?sslmode=require</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">YOUR_SUPABASE_DB_PASSWORD</property>
 
