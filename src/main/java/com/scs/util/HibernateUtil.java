@@ -42,7 +42,7 @@ public class HibernateUtil {
 
     private static void applyEnvOverride(StandardServiceRegistryBuilder builder, String envVar, String setting) {
         String value = System.getenv(envVar);
-        if (value != null && !value.isBlank()) {
+        if (value != null && !value.trim().isEmpty()) {
             builder.applySetting(setting, value.trim());
         }
     }
