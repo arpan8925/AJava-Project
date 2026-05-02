@@ -5,12 +5,14 @@
 
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://107.178.101.170:3306/boostmbdp_ajavaproject?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true</property>
-        <property name="hibernate.connection.username">boostmbdp_ajavaproject</property>
-        <property name="hibernate.connection.password">!OpCiavUIfA1n</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <!-- Supabase: Project Settings > Database > Connection string (URI).
+             Use the Session pooler (port 5432) or Transaction pooler (port 6543). -->
+        <property name="hibernate.connection.url">jdbc:postgresql://db.YOUR-PROJECT-REF.supabase.co:5432/postgres?sslmode=require</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">YOUR_SUPABASE_DB_PASSWORD</property>
 
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
         <property name="hibernate.show_sql">false</property>
         <property name="hibernate.format_sql">true</property>
