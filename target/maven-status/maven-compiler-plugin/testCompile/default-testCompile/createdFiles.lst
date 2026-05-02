@@ -1,12 +1,4 @@
-com\scs\util\SmartSummarizerTest.class
-com\scs\util\SmartRecommenderTest.class
-com\scs\util\PredictiveAnalyticsTest.class
-com\scs\util\AutoReplyGeneratorTest.class
-com\scs\util\PasswordUtilTest.class
-com\scs\util\SentimentAnalyzerTest.class
-com\scs\util\EmergencyDetectorTest.class
-com\scs\util\ETAPredictorTest.class
-com\scs\dao\UserDAOTest.class
-com\scs\util\SmartPipelineValidationTest.class
-com\scs\util\TagGeneratorTest.class
-com\scs\util\PriorityBoosterTest.class
+com/scs/util/SmartRecommenderTest.class
+com/scs/util/SmartSummarizerTest.class
+com/scs/util/SmartPipelineValidationTest.class
+com/scs/util/TagGeneratorTest.class
